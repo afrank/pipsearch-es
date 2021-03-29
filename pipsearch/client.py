@@ -19,7 +19,10 @@ def main():
 
     result = json.loads(requests.get(config["api_url"], params={"q": q}).text)
 
-    max_n = max([ len(x["name"]) for x in result ]) + 2
+    try:
+        max_n = max([ len(x["name"]) for x in result ]) + 2
+    except:
+        max_n = 20
 
     max_v = 16
 

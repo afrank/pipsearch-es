@@ -18,6 +18,9 @@ def main():
 
     result = search(es, q)
 
+    if not result:
+        return jsonify([])
+
     max_score = max([ x["_score"] for x in result ])
     min_score = max_score * 0.75 # show only top 25% of search results
 
